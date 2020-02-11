@@ -2,21 +2,16 @@
  <head>
  <title>Map of Cherry Blossoms at UNC</title>
 
- <! ––location of the CSS style file needed for displaying leaflet map on your HTML file––>
+ 
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
- integrity="sha512-
-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrD
-h+drA=="
+ integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
  crossorigin=""/>
 
- <! ––location of leaflet library––>
+
  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
- integrity="sha512-
-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw
-5lwrg=="
+ integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
  crossorigin=""></script>
- <script src = "/Data/flowering_cherries_4326.geojson">
- </script>
+ <script src = "Data/flowering_cherries_4326.geojson"></script>
 
  </head>
 
@@ -26,11 +21,9 @@ QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Q
     <br />
     <br />
     </body>
-   </html>
-   <! –– creating an HTML element to style with CSS, and use to perform JavaScript tasks.––>
+ 
 <div id = "mapid"></div>
 
-<! ––CSS that will describe the size of the mapid container––>
 <style>
 #mapid{width: 620px; height: 570px;}
 </style>
@@ -65,7 +58,7 @@ return L.marker(latlng, {icon: cherryIcon});}})
 
 </script>
 
-
+</html>
 
 
 
