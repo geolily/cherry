@@ -1,0 +1,71 @@
+<html>
+ <head>
+ <title>Map of Cherry Blossoms at UNC</title>
+
+ <! ––location of the CSS style file needed for displaying leaflet map on your HTML file––>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+ integrity="sha512-
+puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrD
+h+drA=="
+ crossorigin=""/>
+
+ <! ––location of leaflet library––>
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+ integrity="sha512-
+QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw
+5lwrg=="
+ crossorigin=""></script>
+ <script src = "/Data/flowering_cherries_4326.geojson">
+ </script>
+
+ </head>
+
+ <body>
+    <span style = "font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:36px;"><b>Cherry Blossoms on the Campus of UNC-Chapel Hill</b></span>
+    <br />
+    <br />
+    <br />
+    </body>
+   </html>
+   <! –– creating an HTML element to style with CSS, and use to perform JavaScript tasks.––>
+<div id = "mapid"></div>
+
+<! ––CSS that will describe the size of the mapid container––>
+<style>
+#mapid{width: 620px; height: 570px;}
+</style>
+
+
+<script>
+    // start of script
+
+var map = L.map('mapid').setView([35.9058655, -79.049], 15);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+
+L.geoJSON(unccherry).addTo(map)
+
+
+// create custom icon variable of a cherry
+var cherryIcon = L.icon({
+iconUrl: 'https://cdn.pixabay.com/photo/2014/12/21/23/34/cherry-575547_1280.png',
+iconSize: [50,50],
+ popupAnchor: [0,0]
+});
+
+
+L.geoJSON(unccherry, {
+pointToLayer: function (feature, latlng) {
+return L.marker(latlng, {icon: cherryIcon});}})
+.addTo(map);
+
+// end of script
+
+</script>
+
+
+
+
+
