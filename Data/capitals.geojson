@@ -1,22 +1,22 @@
-var capitals = 
-{ "type": "FeatureCollection",
+var capitals = {
+"type": "FeatureCollection",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
   "features": [
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [51.449698, -0.105483]},
-      "properties": {"prop0": "value0"}
+      "properties": { "X": 51.449698, "Y": -0.105483}
       },
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [51.5022198, -3.275261]},
-      "properties": {"prop0": "value0"}
+      "properties": { "X": 51.5022198, "Y": -3.275261}
       },
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [55.9411884, -3.2755501]},
-      "properties": {"prop0": "value0"}
+      "properties": { "X": 55.9411884, "Y": -3.2755501}
       },
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [54.5947987, -6.0670588]},
-      "properties": {"prop0": "value0"}
+      "properties": { "X": 54.5947987, "Y": -6.0670588}
       },
     ]
   }
