@@ -1,6 +1,6 @@
 <html>
  <head>
- <title>Map of French Commune (Province) Boundaries</title>
+ <title>Capitals in the UK</title>
 
  
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -11,12 +11,12 @@
  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
  integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
  crossorigin=""></script>
-
+ <script src = "Data/capitals.geojson"></script>
 
  </head>
 
  <body>
-    <span style = "font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:24px;"><b>Map of French Commune (Province) Boundaries</b></span>
+    <span style = "font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:36px;"><b>Capitals in the UK</b></span>
     <br />
     <br />
     <br />
@@ -32,7 +32,7 @@
 <script>
     // start of script
 
-var map = L.map('mapid').setView([-104.05, 48.99], 15);
+var map = L.map('mapid').setView([53.1966299, -7.1135067], 5);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
@@ -40,42 +40,19 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/
 
 // L.geoJSON(unccherry).addTo(map)
 
-var states = [{
-    "type": "Feature",
-    "properties": {"party": "Republican"},
-    "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-            [-104.05, 48.99],
-            [-97.22,  48.98],
-            [-96.58,  45.94],
-            [-104.03, 45.94],
-            [-104.05, 48.99]
-        ]]
-    }
-}, {
-    "type": "Feature",
-    "properties": {"party": "Democrat"},
-    "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-            [-109.05, 41.00],
-            [-102.06, 40.99],
-            [-102.03, 36.99],
-            [-109.04, 36.99],
-            [-109.05, 41.00]
-        ]]
-    }
-}];
 
-L.geoJSON(states, {
-    style: function(feature) {
-        switch (feature.properties.party) {
-            case 'Republican': return {color: "#ff0000"};
-            case 'Democrat':   return {color: "#0000ff"};
-        }
-    }
-}).addTo(map);
+// create custom icon variable of a cherry
+var cherryIcon = L.icon({
+iconUrl: 'https://cdn.pixabay.com/photo/2014/12/21/23/34/cherry-575547_1280.png',
+iconSize: [50,50],
+ popupAnchor: [0,0]
+});
+
+
+L.geoJSON(capitals, {
+pointToLayer: function (feature, latlng) {
+return L.marker(latlng, {icon: cherryIcon});}})
+.addTo(map);
 
 // end of script
 
