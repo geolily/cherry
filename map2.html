@@ -32,7 +32,7 @@
 <script>
     // start of script
 
-var map = L.map('mapid').setView([35.9058655, -79.049], 15);
+var map = L.map('mapid').setView([-104.05, 48.99], 15);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
@@ -42,17 +42,42 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/
 
 
 // create custom icon variable of a cherry
-var cherryIcon = L.icon({
-iconUrl: 'https://cdn.pixabay.com/photo/2014/12/21/23/34/cherry-575547_1280.png',
-iconSize: [50,50],
- popupAnchor: [0,0]
-});
+var states = [{
+    "type": "Feature",
+    "properties": {"party": "Republican"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+            [-104.05, 48.99],
+            [-97.22,  48.98],
+            [-96.58,  45.94],
+            [-104.03, 45.94],
+            [-104.05, 48.99]
+        ]]
+    }
+}, {
+    "type": "Feature",
+    "properties": {"party": "Democrat"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+            [-109.05, 41.00],
+            [-102.06, 40.99],
+            [-102.03, 36.99],
+            [-109.04, 36.99],
+            [-109.05, 41.00]
+        ]]
+    }
+}];
 
-
-L.geoJSON(unccherry, {
-pointToLayer: function (feature, latlng) {
-return L.marker(latlng, {icon: cherryIcon});}})
-.addTo(map);
+L.geoJSON(states, {
+    style: function(feature) {
+        switch (feature.properties.party) {
+            case 'Republican': return {color: "#ff0000"};
+            case 'Democrat':   return {color: "#0000ff"};
+        }
+    }
+}).addTo(map);
 
 // end of script
 
