@@ -6,8 +6,8 @@ var capitals = {
       "properties": { "X": -0.105483, "Y": 51.449698}
       },
     { "type": "Feature",
-      "geometry": {"type": "Point", "coordinates": [51.5022198, -3.275261]},
-      "properties": { "X": 51.5022198, "Y": -3.275261}
+      "geometry": {"type": "Point", "coordinates": [-3.275261, 51.5022198]},
+      "properties": { "X": -3.275261, "Y": 51.5022198}
       },
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [55.9411884, -3.2755501]},
