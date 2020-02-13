@@ -48,6 +48,16 @@ iconSize: [50,50],
  popupAnchor: [0,0]
 });
 
+// create an HTML variable that will pop up with a photo - skip for now
+// var customPopup = "UNC Well<br/><img src='https://static1.squarespace.com/static/57d17e77b8a79bfa4e31641d/t/58a22fd0bebafb516ad2404a/1487024089479/unc+well.png?format=1500w' width='100px'/>";
+
+L.marker([-0.105483, 51.449698]).addTo(map)
+    .bindPopup('London')
+    .openPopup();
+
+L.marker([-3.275261, 51.5022198]).addTo(map)
+    .bindPopup('Cardiff')
+    .openPopup();
 
 L.geoJSON(unccherry, {
 pointToLayer: function (feature, latlng) {
