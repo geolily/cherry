@@ -38,12 +38,9 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/
     attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 
-// L.geoJSON(unccherry).addTo(map)
 
-
-// create custom icon variable of a cherry
-var cherryIcon = L.icon({
-iconUrl: 'https://cdn.pixabay.com/photo/2014/12/21/23/34/cherry-575547_1280.png',
+var capIcon = L.icon({
+iconUrl: 'https://cdn.pixabay.com/photo/2016/03/31/17/33/icons-1293736_1280.png',
 iconSize: [50,50],
  popupAnchor: [0,0]
 });
@@ -51,7 +48,7 @@ iconSize: [50,50],
 
 L.geoJSON(capitals, {
 pointToLayer: function (feature, latlng) {
-return L.marker(latlng, {icon: cherryIcon});}})
+return L.marker(latlng, {icon: capIcon});}})
 .addTo(map);
 
 // end of script
